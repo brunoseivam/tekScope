@@ -1,0 +1,49 @@
+record(waveform, "$(NAME)RawData") {
+    field(DESC, "$(DESC) Waveform Raw Data")
+    field(NELM, "$(NELM)")
+    field(EGU,  "$(EGU)")
+    field(FTVL, "CHAR")
+    field(DTYP, "stream")
+    field(SCAN, "$(SCAN=Passive)")
+    field(INP,  "@scope.proto readCurve($(SOURCE),$(NAME)YMultiplier) $(PORT)")
+    field(DISV, "0")
+    field(SDIS, "$(NAME)Enabled-I")
+    field(FLNK, "$(NAME)DataCalc")
+}
+
+record(ai, "$(NAME)YMultiplier") {
+    field(DESC, "$(DESC)")
+    field(DTYP, "Soft Channel")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+    field(DISV, "0")
+    field(SDIS, "$(NAME)Enabled-I")
+}
+
+record(acalcout, "$(NAME)DataCalc") {
+    field(DESC, "$(DESC) Waveform Data Scaler")
+    field(DTYP, "Soft Channel")
+    field(NELM, "$(NELM)")
+    field(INPA, "$(NAME)YMultiplier")
+    field(INAA, "$(NAME)RawData")
+    field(OUT,  "$(NAME)Data CA")
+    field(WAIT, "Wait")
+    field(OOPT, "Every Time")
+    field(CALC, "A*AA")
+    field(DISV, "0")
+    field(SDIS, "$(NAME)Enabled-I")
+    field(FLNK, "$(NAME)Data")
+}
+
+record(waveform, "$(NAME)Data") {
+    field(DESC, "$(DESC) Waveform Data")
+    field(DTYP, "Soft Channel")
+    field(INP,  "$(NAME)DataCalc.AVAL")
+    field(NELM, "$(NELM)")
+    field(FTVL, "DOUBLE")
+    field(EGU,  "$(EGU)")
+    field(SCAN, "Passive")
+    field(DISV, "0")
+    field(SDIS, "$(NAME)Enabled-I")
+    field(FLNK, "$(XNAME)Multiplier")
+}

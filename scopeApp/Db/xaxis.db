@@ -1,0 +1,41 @@
+record(ai, "$(NAME)Multiplier") {
+    field(DESC, "$(DESC) Multiplier")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat(WFMO:XIN) $(PORT)")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+    field(FLNK, "$(NAME)Offset")
+}
+
+record(ai, "$(NAME)Offset") {
+    field(DESC, "$(DESC) Offset")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat(WFMO:XZE) $(PORT)")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+    field(FLNK, "$(NAME)Calc")
+}
+
+record(acalcout, "$(NAME)Calc") {
+    field(DESC, "$(DESC) Scaler")
+    field(DTYP, "Soft Channel")
+    field(NELM, "$(NELM)")
+    field(INPA, "$(NAME)Multiplier")
+    field(INPB, "$(NAME)Offset")
+    field(INAA, "$(NAME)RawData")
+    field(OUT,  "$(NAME)Data CA")
+    field(WAIT, "Wait")
+    field(OOPT, "Every Time")
+    field(CALC, "A*IX+B")
+    field(FLNK, "$(NAME)Data")
+}
+
+record(waveform, "$(NAME)Data") {
+    field(DESC, "$(DESC) Data")
+    field(DTYP, "Soft Channel")
+    field(INP,  "$(NAME)Calc.AVAL")
+    field(NELM, "$(NELM)")
+    field(FTVL, "DOUBLE")
+    field(EGU,  "$(EGU)")
+    field(SCAN, "Passive")
+}

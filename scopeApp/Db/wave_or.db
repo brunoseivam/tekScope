@@ -1,0 +1,40 @@
+record(waveform, "$(NAME)Data") {
+    field(DESC, "$(DESC)")
+    field(NELM, "$(NELM)")
+    field(EGU,  "$(EGU)")
+    field(FTVL, "CHAR")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readCurve($(SOURCE)) $(PORT)")
+    field(FLNK, "$(NAME)Fanout")
+}
+
+
+record(ai, "$(NAME)NPoints") {
+    field(DESC, "$(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat(WFMO:NR_P) $(PORT)")
+    field(SCAN, "Passive")
+}
+
+record(stringin, "$(NAME)Unit") {
+    field(DESC, "$(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readString(WFMO:YUN) $(PORT)")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(NAME)Offset") {
+    field(DESC, "$(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat(WFMO:YZE) $(PORT)")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}
+
+record(ai, "$(NAME)Multiplier") {
+    field(DESC, "$(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat(WFMO:YMU) $(PORT)")
+    field(PREC, "5")
+    field(SCAN, "Passive")
+}

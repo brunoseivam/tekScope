@@ -1,0 +1,18 @@
+record(ai, "$(NAME)-I") {
+    field(DESC, "Get $(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readFloat($(CMD)) $(PORT)")
+    field(PREC, "$(PREC)")
+    field(EGU,  "$(EGU)")
+    field(SCAN, "$(SCAN=1 second)")
+}
+
+record(ao, "$(NAME)-SP") {
+    field(DESC, "Set $(DESC)")
+    field(DTYP, "stream")
+    field(OUT,  "@scope.proto writeFloat($(CMD)) $(PORT)")
+    field(PINI, "YES")
+    field(PREC, "$(PREC)")
+    field(EGU,  "$(EGU)")
+    field(FLNK, "$(NAME)-I")
+}

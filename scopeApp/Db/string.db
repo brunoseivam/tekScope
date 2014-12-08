@@ -1,0 +1,14 @@
+record(stringin, "$(NAME)-I") {
+    field(DESC, "Get $(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readString($(CMD)) $(PORT)")
+    field(SCAN, "$(SCAN=1 second)")
+}
+
+record(stringout, "$(NAME)-SP") {
+    field(DESC, "Set $(DESC)")
+    field(DTYP, "stream")
+    field(OUT,  "@scope.proto writeString($(CMD)) $(PORT)")
+    field(PINI, "YES")
+    field(FLNK, "$(NAME)-I")
+}

@@ -1,0 +1,18 @@
+record(bi, "$(NAME)-I") {
+    field(DESC, "Get $(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readBool($(CMD)) $(PORT)")
+    field(SCAN, "$(SCAN=1 second)")
+    field(ZNAM, "$(ZNAM)")
+    field(ONAM, "$(ONAM)")
+}
+
+record(bo, "$(NAME)-Sel") {
+    field(DESC, "Set $(DESC)")
+    field(DTYP, "stream")
+    field(OUT,  "@scope.proto writeBool($(CMD)) $(PORT)")
+    field(PINI, "YES")
+    field(ZNAM, "$(ZNAM)")
+    field(ONAM, "$(ONAM)")
+    field(FLNK, "$(NAME)-I")
+}

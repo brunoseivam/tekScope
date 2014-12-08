@@ -1,0 +1,68 @@
+Timeout=20000;
+@mismatch { disconnect; }
+@writetimeout { disconnect; }
+@readtimeout { disconnect; }
+@replyTimeout { disconnect; }
+
+readString {
+    out "\$1?";
+    in "%s\n";
+}
+
+writeString {
+    out "\$1 %s";
+    @init { readString; }
+}
+
+readLabel {
+    out '\$1?';
+    in '%s\n';
+}
+
+writeLabel{
+    out '\$1 %s';
+    @init { readLabel; }
+}
+
+readBool {
+    out "\$1?";
+    in "%d\n";
+}
+
+writeBool {
+    out "\$1 %d";
+    @init { readBool; }
+}
+
+readInt {
+    out "\$1?";
+    in "%d\n";
+}
+
+writeInt {
+    out "\$1 %d";
+    @init { readInt; }
+}
+
+readFloat {
+    out "\$1?";
+    in "%f\n";
+}
+
+writeFloat {
+    out "\$1 %f";
+    @init { readFloat; }
+}
+
+readCurve {
+    out "DATA:SOURCE \$1";
+    out "DATA:WIDTH 1";
+    out "DATA:ENC RIB";
+    out "DATA:START 1";
+    out "DATA:STOP 10000";
+    out "CURVE?";
+    in "#510000%.1r\n";
+    out "WFMO:YMU?";
+    in "%(\$2.VAL)f\n";
+}
+

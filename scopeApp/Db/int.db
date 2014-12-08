@@ -1,0 +1,14 @@
+record(bi, "$(NAME)-I") {
+    field(DESC, "Get $(DESC)")
+    field(DTYP, "stream")
+    field(INP,  "@scope.proto readInt($(CMD)) $(PORT)")
+    field(SCAN, "$(SCAN=1 second)")
+}
+
+record(bo, "$(NAME)-SP") {
+    field(DESC, "Set $(DESC)")
+    field(DTYP, "stream")
+    field(OUT,  "@scope.proto writeInt($(CMD)) $(PORT)")
+    field(PINI, "YES")
+    field(FLNK, "$(NAME)-I")
+}
