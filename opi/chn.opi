@@ -5,7 +5,7 @@
     <include_parent_macros>true</include_parent_macros>
   </macros>
   <wuid>-3fe370cf:1498b81ac8f:-7fea</wuid>
-  <boy_version>3.2.10.201405280937</boy_version>
+  <boy_version>3.2.10.201312171754</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>80</height>
@@ -35,33 +35,17 @@
   <widget typeId="org.csstudio.opibuilder.widgets.LED" version="1.0.0">
     <border_alarm_sensitive>true</border_alarm_sensitive>
     <visible>true</visible>
-    <square_led>false</square_led>
-    <scripts />
-    <height>20</height>
-    <data_type>0</data_type>
-    <show_boolean_label>false</show_boolean_label>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <off_label>OFF</off_label>
-    <background_color>
-      <color red="240" green="240" blue="240" />
-    </background_color>
-    <enabled>true</enabled>
-    <widget_type>LED</widget_type>
-    <font>
-      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-    </font>
-    <width>20</width>
-    <border_style>0</border_style>
-    <effect_3d>true</effect_3d>
-    <pv_value />
-    <bit>-1</bit>
-    <on_label>ON</on_label>
-    <border_width>1</border_width>
     <wuid>-3fe370cf:1498b81ac8f:-7fe1</wuid>
+    <scripts />
+    <square_led>false</square_led>
     <on_color>
       <color red="0" green="255" blue="0" />
     </on_color>
+    <height>20</height>
+    <data_type>0</data_type>
     <name>LED</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <show_boolean_label>false</show_boolean_label>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
@@ -71,60 +55,35 @@
       <color red="0" green="100" blue="0" />
     </off_color>
     <pv_name>$(Sys){Scope:$(Dev)-CH:$(N)}Enabled-I</pv_name>
+    <background_color>
+      <color red="240" green="240" blue="240" />
+    </background_color>
     <foreground_color>
       <color red="192" green="192" blue="192" />
     </foreground_color>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <rules />
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>56</y>
-    <actions hook="false" hook_all="false" />
-    <x>38</x>
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
-    <border_alarm_sensitive>true</border_alarm_sensitive>
-    <visible>true</visible>
-    <wuid>-3fe370cf:1498b81ac8f:-7fda</wuid>
-    <scripts />
-    <height>31</height>
-    <name>Combo</name>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>false</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <pv_name>$(Sys){Scope:$(Dev)-CH:$(N)}Enabled-Sel</pv_name>
-    <background_color>
-      <color red="255" green="255" blue="255" />
-    </background_color>
-    <foreground_color>
-      <color red="0" green="0" blue="0" />
-    </foreground_color>
-    <widget_type>Combo</widget_type>
+    <off_label>OFF</off_label>
+    <widget_type>LED</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>100</width>
+    <width>20</width>
     <border_style>0</border_style>
+    <effect_3d>true</effect_3d>
     <rules />
     <pv_value />
+    <bit>-1</bit>
     <border_width>1</border_width>
+    <on_label>ON</on_label>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <items_from_pv>true</items_from_pv>
     <actions hook="false" hook_all="false" />
-    <y>21</y>
+    <y>56</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>-1</x>
+    <x>38</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
@@ -1023,7 +982,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <wuid>5171c5ce:14a2f53fa58:-7f62</wuid>
     <scripts />
-    <height>27</height>
+    <height>51</height>
     <style>1</style>
     <name>Action Button</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
@@ -1038,7 +997,7 @@ $(pv_value)</tooltip>
     </foreground_color>
     <widget_type>Action Button</widget_type>
     <enabled>true</enabled>
-    <text>$(actions)</text>
+    <text>Process</text>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -1066,5 +1025,110 @@ $(pv_value)</tooltip>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>750</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <wuid>-4754c64d:14a2f57fc05:-7135</wuid>
+    <scripts />
+    <height>27</height>
+    <style>1</style>
+    <name>Action Button_1</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <pv_name>$(Sys){Scope:$(Dev)-CH:$(N)}Enabled-Sel</pv_name>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Action Button</widget_type>
+    <enabled>true</enabled>
+    <text>On</text>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>45</width>
+    <border_style>0</border_style>
+    <push_action_index>0</push_action_index>
+    <image></image>
+    <rules />
+    <pv_value />
+    <toggle_button>false</toggle_button>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>23</y>
+    <actions hook="false" hook_all="false">
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name)</pv_name>
+        <value>ON</value>
+        <timeout>10</timeout>
+        <confirm_message></confirm_message>
+        <description></description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>-1</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <wuid>-4754c64d:14a2f57fc05:-712b</wuid>
+    <scripts />
+    <height>27</height>
+    <style>1</style>
+    <name>Action Button_2</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <pv_name>$(Sys){Scope:$(Dev)-CH:$(N)}Enabled-Sel</pv_name>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Action Button</widget_type>
+    <enabled>true</enabled>
+    <text>Off</text>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>45</width>
+    <border_style>0</border_style>
+    <push_action_index>0</push_action_index>
+    <image></image>
+    <rules />
+    <pv_value />
+    <toggle_button>false</toggle_button>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>23</y>
+    <actions hook="false" hook_all="true">
+      <action type="WRITE_PV">
+        <pv_name>$(Sys){Scope:$(Dev)-CH:$(N)}RawData.SCAN</pv_name>
+        <value>Passive</value>
+        <timeout>10</timeout>
+        <confirm_message></confirm_message>
+        <description></description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name)</pv_name>
+        <value>OFF</value>
+        <timeout>10</timeout>
+        <confirm_message></confirm_message>
+        <description></description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>54</x>
   </widget>
 </display>

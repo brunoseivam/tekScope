@@ -7,7 +7,7 @@
     <Dev>1</Dev>
   </macros>
   <wuid>-3fe370cf:1498b81ac8f:-8000</wuid>
-  <boy_version>3.2.10.201405280937</boy_version>
+  <boy_version>3.2.10.201312171754</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>768</height>
@@ -57,7 +57,7 @@
     <trace_6_trace_type>2</trace_6_trace_type>
     <trace_3_y_axis_index>1</trace_3_y_axis_index>
     <trace_7_point_style>0</trace_7_point_style>
-    <trace_1_name>Channel 2</trace_1_name>
+    <trace_1_name>Channel 1</trace_1_name>
     <trace_4_line_width>1</trace_4_line_width>
     <trace_0_point_size>15</trace_0_point_size>
     <show_legend>true</show_legend>
@@ -68,7 +68,7 @@
     <trace_0_x_pv_value />
     <axis_1_visible>true</axis_1_visible>
     <height>528</height>
-    <axis_1_maximum>20.0</axis_1_maximum>
+    <axis_1_maximum>128.0</axis_1_maximum>
     <trace_3_x_pv_value />
     <trace_4_x_pv>$(Sys){Scope:$(Dev)-X}Offset</trace_4_x_pv>
     <trace_2_x_pv>$(Sys){Scope:$(Dev)-X}Offset</trace_2_x_pv>
@@ -237,7 +237,7 @@ $(trace_0_y_pv_value)</tooltip>
     <title></title>
     <trace_1_y_pv>$(Sys){Scope:$(Dev)-CH:1}Data</trace_1_y_pv>
     <pv_name>$(Sys){Scope:$(Dev)-CH:1}Data</pv_name>
-    <axis_1_minimum>-20.0</axis_1_minimum>
+    <axis_1_minimum>-128.0</axis_1_minimum>
     <trace_3_plot_mode>0</trace_3_plot_mode>
     <trace_0_visible>true</trace_0_visible>
     <trace_6_line_width>1</trace_6_line_width>
@@ -254,25 +254,6 @@ $(trace_0_y_pv_value)</tooltip>
     </trace_7_trace_color>
     <trace_3_update_delay>100</trace_3_update_delay>
     <scripts>
-      <path pathString="EmbeddedJs" checkConnect="true" sfe="false" seoe="false">
-        <scriptName>CH1</scriptName>
-        <scriptText><![CDATA[importPackage(Packages.org.csstudio.opibuilder.scriptUtil);
-
-var pv0 = PVUtil.getDouble(pvs[0]);
-var pv1 = PVUtil.getString(pvs[1]);
-
-var bgcolor = pv0 ? "T_ind" : widget.getPropertyValue("plot_area_background_color");
-var visible = pv0 == 1;
-var label = pv1=="\"\"" ? "Channel 1" : pv1;
-
-widget.setPropertyValue("trace_0_trace_color", bgcolor);
-widget.setPropertyValue("trace_1_trace_color", bgcolor);
-widget.setPropertyValue("trace_0_visible",visible);
-widget.setPropertyValue("trace_1_visible",visible);
-widget.setPropertyValue("trace_1_name",label);]]></scriptText>
-        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Enabled-I</pv>
-        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Label-I</pv>
-      </path>
       <path pathString="EmbeddedJs" checkConnect="true" sfe="false" seoe="false">
         <scriptName>CH2</scriptName>
         <scriptText><![CDATA[importPackage(Packages.org.csstudio.opibuilder.scriptUtil);
@@ -367,7 +348,170 @@ widget.setPropertyValue("trace_7_name",label);
     </scale_options>
     <trace_1_concatenate_data>false</trace_1_concatenate_data>
     <trace_6_x_pv>$(Sys){Scope:$(Dev)-X}Offset</trace_6_x_pv>
-    <rules />
+    <rules>
+      <rule name="Y Maximum" prop_id="axis_1_maximum" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Scaled&quot;">
+          <value>20.0</value>
+        </exp>
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>128.0</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Y Minimum" prop_id="axis_1_minimum" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Scaled&quot;">
+          <value>-20.0</value>
+        </exp>
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>-128.0</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Channel 1 PV" prop_id="trace_1_y_pv" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>$(Sys){Scope:$(Dev)-CH:1}RawData</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Channel 2 PV" prop_id="trace_3_y_pv" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>$(Sys){Scope:$(Dev)-CH:2}RawData</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Channel 3 PV" prop_id="trace_5_y_pv" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>$(Sys){Scope:$(Dev)-CH:3}RawData</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Channel 4 PV" prop_id="trace_7_y_pv" out_exp="false">
+        <exp bool_exp="pvStr0==&quot;Raw&quot;">
+          <value>$(Sys){Scope:$(Dev)-CH:4}RawData</value>
+        </exp>
+        <pv trig="true">loc://$(DID)WaveMode</pv>
+      </rule>
+      <rule name="Channel 1 Label" prop_id="trace_1_name" out_exp="true">
+        <exp bool_exp="!(pvStr0==&quot;\&quot;\&quot;&quot;)">
+          <value>pvStr0</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Label-I</pv>
+      </rule>
+      <rule name="Channel 2 Label" prop_id="trace_3_name" out_exp="true">
+        <exp bool_exp="!(pvStr0==&quot;\&quot;\&quot;&quot;)">
+          <value>pvStr0</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:2}Label-I</pv>
+      </rule>
+      <rule name="Channel 3 Label" prop_id="trace_5_name" out_exp="true">
+        <exp bool_exp="!(pvStr0==&quot;\&quot;\&quot;&quot;)">
+          <value>pvStr0</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:3}Label-I</pv>
+      </rule>
+      <rule name="Channel 4 Label" prop_id="trace_7_name" out_exp="true">
+        <exp bool_exp="!(pvStr0==&quot;\&quot;\&quot;&quot;)">
+          <value>pvStr0</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:4}Label-I</pv>
+      </rule>
+      <rule name="Channel 1 Indicator Color" prop_id="trace_0_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 2 Indicator Color" prop_id="trace_2_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:2}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 3 Indicator Color" prop_id="trace_4_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:3}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 4 Indicator Color" prop_id="trace_6_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:4}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 1 Color" prop_id="trace_1_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 2 Color" prop_id="trace_3_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:2}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 3 Color" prop_id="trace_5_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:3}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 4 Color" prop_id="trace_7_trace_color" out_exp="true">
+        <exp bool_exp="pv0==0">
+          <value>widget.getPropertyValue("plot_area_background_color")</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:4}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 1 Indicator Visible" prop_id="trace_0_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 2 Indicator Visible" prop_id="trace_2_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:2}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 3 Indicator Visible" prop_id="trace_4_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:3}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 4 Indicator Visible" prop_id="trace_6_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:4}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 1 Visible" prop_id="trace_1_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:1}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 2 Visible" prop_id="trace_3_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:2}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 3 Visible" prop_id="trace_5_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:3}Enabled-I</pv>
+      </rule>
+      <rule name="Channel 4 Visible" prop_id="trace_7_visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(Sys){Scope:$(Dev)-CH:4}Enabled-I</pv>
+      </rule>
+    </rules>
     <trace_2_y_pv>$(Sys){Scope:$(Dev)-CH:2}Position-I</trace_2_y_pv>
     <trace_0_y_pv_value />
     <trace_0_trace_type>2</trace_0_trace_type>
@@ -617,7 +761,7 @@ widget.setPropertyValue("trace_7_name",label);
         <font>
           <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
         </font>
-        <width>744</width>
+        <width>852</width>
         <border_style>0</border_style>
         <rules />
         <border_width>1</border_width>
@@ -700,7 +844,7 @@ widget.setPropertyValue("trace_7_name",label);
         <font>
           <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
         </font>
-        <width>744</width>
+        <width>852</width>
         <border_style>0</border_style>
         <rules />
         <border_width>1</border_width>
@@ -783,7 +927,7 @@ widget.setPropertyValue("trace_7_name",label);
         <font>
           <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
         </font>
-        <width>744</width>
+        <width>852</width>
         <border_style>0</border_style>
         <rules />
         <border_width>1</border_width>
@@ -2299,5 +2443,101 @@ $(pv_value)</tooltip>
       <tooltip></tooltip>
       <x>306</x>
     </widget>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.combo" version="1.0.0">
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <visible>true</visible>
+    <wuid>-4754c64d:14a2f57fc05:-7afb</wuid>
+    <scripts />
+    <height>31</height>
+    <name>Combo_1</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>false</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <pv_name>loc://$(DID)WaveMode("Scaled")</pv_name>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Combo</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>100</width>
+    <border_style>0</border_style>
+    <rules />
+    <pv_value />
+    <items>
+      <s>Raw</s>
+      <s>Scaled</s>
+    </items>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <items_from_pv>false</items_from_pv>
+    <actions hook="false" hook_all="false" />
+    <y>246</y>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>858</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <visible>true</visible>
+    <vertical_alignment>1</vertical_alignment>
+    <show_units>true</show_units>
+    <wuid>-4754c64d:14a2f57fc05:-7afa</wuid>
+    <auto_size>false</auto_size>
+    <rotation_angle>0.0</rotation_angle>
+    <scripts />
+    <height>20</height>
+    <name>Text Update_10</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <format_type>0</format_type>
+    <precision_from_pv>true</precision_from_pv>
+    <transparent>false</transparent>
+    <pv_name>loc://$(DID)WaveMode</pv_name>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Text Update</widget_type>
+    <enabled>true</enabled>
+    <text>######</text>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <precision>0</precision>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>100</width>
+    <border_style>0</border_style>
+    <rules />
+    <pv_value />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <horizontal_alignment>0</horizontal_alignment>
+    <actions hook="false" hook_all="false" />
+    <y>252</y>
+    <wrap_words>false</wrap_words>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>966</x>
   </widget>
 </display>
