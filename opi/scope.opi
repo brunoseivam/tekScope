@@ -22,7 +22,7 @@
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
-  <width>1024</width>
+  <width>1075</width>
   <rules />
   <show_edit_range>true</show_edit_range>
   <grid_space>6</grid_space>
@@ -121,6 +121,7 @@
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <axis_1_axis_title>Voltage</axis_1_axis_title>
     <trace_4_anti_alias>true</trace_4_anti_alias>
+    <trace_7_x_pv_value />
     <trace_4_plot_mode>1</trace_4_plot_mode>
     <trace_3_update_mode>3</trace_3_update_mode>
     <axis_0_maximum>10000.0</axis_0_maximum>
@@ -170,6 +171,7 @@
     <trace_7_line_width>1</trace_7_line_width>
     <trace_0_y_pv>$(Sys){Scope:$(Dev)-CH:1}Position-I</trace_0_y_pv>
     <trace_5_point_size>4</trace_5_point_size>
+    <trace_6_x_pv_value />
     <trace_6_update_mode>0</trace_6_update_mode>
     <axis_0_title_font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
@@ -193,7 +195,7 @@
     </trace_4_trace_color>
     <widget_type>XY Graph</widget_type>
     <enabled>true</enabled>
-    <width>1027</width>
+    <width>1075</width>
     <trace_0_buffer_size>2</trace_0_buffer_size>
     <trigger_pv>TST{Scope:1-CH:1}RawData.PROC</trigger_pv>
     <trace_6_trace_color>
@@ -212,6 +214,7 @@
     <trace_5_update_delay>100</trace_5_update_delay>
     <trace_0_x_axis_index>0</trace_0_x_axis_index>
     <trace_6_y_axis_index>1</trace_6_y_axis_index>
+    <trace_6_y_pv_value />
     <trace_0_point_style>8</trace_0_point_style>
     <tooltip>$(trace_0_y_pv)
 $(trace_0_y_pv_value)</tooltip>
@@ -332,6 +335,7 @@ widget.setPropertyValue("trace_7_name",label);
     </scripts>
     <trace_5_visible>true</trace_5_visible>
     <trace_0_anti_alias>true</trace_0_anti_alias>
+    <trace_4_x_pv_value />
     <trace_6_x_axis_index>0</trace_6_x_axis_index>
     <background_color>
       <color red="240" green="240" blue="240" />
@@ -345,9 +349,13 @@ widget.setPropertyValue("trace_7_name",label);
     </trace_2_trace_color>
     <trace_7_point_size>4</trace_7_point_size>
     <trace_6_anti_alias>true</trace_6_anti_alias>
+    <trace_5_y_pv_value />
     <pv_value />
+    <trace_5_x_pv_value />
     <trace_5_line_width>1</trace_5_line_width>
+    <trace_4_y_pv_value />
     <trace_5_y_pv>$(Sys){Scope:$(Dev)-CH:3}Data</trace_5_y_pv>
+    <trace_7_y_pv_value />
     <trace_5_x_axis_index>0</trace_5_x_axis_index>
     <trace_1_y_axis_index>1</trace_1_y_axis_index>
     <trace_3_anti_alias>true</trace_3_anti_alias>
@@ -427,7 +435,7 @@ widget.setPropertyValue("trace_7_name",label);
     </background_color>
     <widget_type>Tabbed Container</widget_type>
     <enabled>true</enabled>
-    <width>750</width>
+    <width>859</width>
     <tab_1_background_color>
       <color name="GlobalBG" red="240" green="240" blue="240" />
     </tab_1_background_color>
@@ -483,7 +491,7 @@ widget.setPropertyValue("trace_7_name",label);
       <font>
         <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
       </font>
-      <width>748</width>
+      <width>857</width>
       <border_style>0</border_style>
       <rules />
       <fc>false</fc>
@@ -526,7 +534,7 @@ widget.setPropertyValue("trace_7_name",label);
         <font>
           <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
         </font>
-        <width>744</width>
+        <width>852</width>
         <border_style>0</border_style>
         <rules />
         <border_width>1</border_width>
@@ -566,7 +574,7 @@ widget.setPropertyValue("trace_7_name",label);
       <font>
         <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
       </font>
-      <width>748</width>
+      <width>857</width>
       <border_style>0</border_style>
       <rules />
       <fc>false</fc>
@@ -649,7 +657,7 @@ widget.setPropertyValue("trace_7_name",label);
       <font>
         <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
       </font>
-      <width>748</width>
+      <width>857</width>
       <border_style>0</border_style>
       <rules />
       <fc>false</fc>
@@ -732,7 +740,7 @@ widget.setPropertyValue("trace_7_name",label);
       <font>
         <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
       </font>
-      <width>748</width>
+      <width>857</width>
       <border_style>0</border_style>
       <rules />
       <fc>false</fc>
@@ -825,9 +833,9 @@ widget.setPropertyValue("trace_7_name",label);
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <y>15</y>
+    <y>127</y>
     <actions hook="false" hook_all="false" />
-    <x>756</x>
+    <x>852</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
