@@ -43,10 +43,10 @@ file db/float.db {
     {"TST{Scope:1-CH:2}Offset",   "SCOPE", "Channel 2 Offset",   "CH2:OFFS","3", "V"}
     {"TST{Scope:1-CH:3}Offset",   "SCOPE", "Channel 3 Offset",   "CH3:OFFS","3", "V"}
     {"TST{Scope:1-CH:4}Offset",   "SCOPE", "Channel 4 Offset",   "CH4:OFFS","3", "V"}
-    {"TST{Scope:1-CH:1}Position", "SCOPE", "Channel 1 Position", "CH1:POS", "3", "V"}
-    {"TST{Scope:1-CH:2}Position", "SCOPE", "Channel 2 Position", "CH2:POS", "3", "V"}
-    {"TST{Scope:1-CH:3}Position", "SCOPE", "Channel 3 Position", "CH3:POS", "3", "V"}
-    {"TST{Scope:1-CH:4}Position", "SCOPE", "Channel 4 Position", "CH4:POS", "3", "V"}
+    {"TST{Scope:1-CH:1}Position", "SCOPE", "Channel 1 Position", "CH1:POS", "3", "div"}
+    {"TST{Scope:1-CH:2}Position", "SCOPE", "Channel 2 Position", "CH2:POS", "3", "div"}
+    {"TST{Scope:1-CH:3}Position", "SCOPE", "Channel 3 Position", "CH3:POS", "3", "div"}
+    {"TST{Scope:1-CH:4}Position", "SCOPE", "Channel 4 Position", "CH4:POS", "3", "div"}
 }
 
 file db/wave.db {
