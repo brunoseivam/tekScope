@@ -6,10 +6,11 @@ epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", "1000000")
 dbLoadDatabase("dbd/scope.dbd",0,0)
 scope_registerRecordDeviceDriver(pdbbase)
 
-usbtmcConfigure("SCOPE", 0x0699, 0x0408)
+usbtmcConfigure("SCOPE", 0x0699, 0x0368)
+#usbtmcConfigure("SCOPE", 0x0699, 0x0408)
 #asynSetTraceMask("SCOPE", -1, 0x9)
 #asynSetTraceIOMask("SCOPE", -1, 0x2)
 
-dbLoadTemplate("db/scope.substitutions")
+dbLoadTemplate("db/tds2000.substitutions")
 
 iocInit()

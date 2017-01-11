@@ -1,0 +1,60 @@
+# Substitution file for models TDS200, TDS1000/TDS2000, TDS1000B/TDS2000B and TPS2000
+
+file db/bchoice.db {
+    pattern{NAME, PORT, DESC, CMD, ZNAM, ONAM}
+    {"TST{Scope:1-Acq}State",       "SCOPE", "acquisition state",       "ACQ:STATE",    "STOP", "RUN"}
+
+    {"TST{Scope:1-CH:1}Enabled",    "SCOPE", "Channel 1 Enabled",       "SEL:CH1",      "OFF",  "ON"}
+    {"TST{Scope:1-CH:2}Enabled",    "SCOPE", "Channel 2 Enabled",       "SEL:CH2",      "OFF",  "ON"}
+    {"TST{Scope:1-CH:3}Enabled",    "SCOPE", "Channel 3 Enabled",       "SEL:CH3",      "OFF",  "ON"}
+    {"TST{Scope:1-CH:4}Enabled",    "SCOPE", "Channel 4 Enabled",       "SEL:CH4",      "OFF",  "ON"}
+}
+
+file db/mchoice.db {
+    pattern{NAME, PORT, DESC, CMD, ZRST, ONST, TWST, THST, FRST, FVST, SXST, SVST}
+    {"TST{Scope:1}Lock", "SCOPE", "front panel lock", "LOCK", "NONE", "ALL"}
+
+    {"TST{Scope:1-Trig}Mode",     "SCOPE", "trigger mode",   "TRIG:MAIN:MOD",       "AUTO", "NORMAL"}
+    {"TST{Scope:1-Trig}Source",   "SCOPE", "trigger source", "TRIG:MAIN:EDGE:SOU",  "CH1",  "CH2",  "CH3", "CH4"}
+    {"TST{Scope:1-Trig}Slope",    "SCOPE", "trigger slope",  "TRIG:MAIN:EDGE:SLO",  "RISE", "FALL"}
+
+    {"TST{Scope:1-Acq}StopAfter", "SCOPE", "acquisition stop after",  "ACQ:STOPA", "RUNSTOP", "SEQUENCE"}
+    {"TST{Scope:1-Data}Source",   "SCOPE", "data source for acq.",    "DAT:SOU".   "CH1", "CH2", "CH3", "CH4"}
+
+    {"TST{Scope:1-CH:1}Coupling", "SCOPE", "Channel 1 Coupling mode",   "CH1:COUP", "AC", "DC", "GND"}
+    {"TST{Scope:1-CH:2}Coupling", "SCOPE", "Channel 2 Coupling mode",   "CH2:COUP", "AC", "DC", "GND"}
+    {"TST{Scope:1-CH:3}Coupling", "SCOPE", "Channel 3 Coupling mode",   "CH3:COUP", "AC", "DC", "GND"}
+    {"TST{Scope:1-CH:4}Coupling", "SCOPE", "Channel 4 Coupling mode",   "CH4:COUP", "AC", "DC", "GND"}
+}
+
+file db/float.db {
+    pattern{NAME, PORT, DESC, CMD, PREC, EGU}
+    {"TST{Scope:1-Hor}Scale",       "SCOPE", "horizontal scale",        "HOR:MAIN:SCA", "9", "s"}
+    {"TST{Scope:1-Hor:Delay}Time",  "SCOPE", "horizontal delay time",   "HOR:MAIN:POS", "5", "s"}
+
+    {"TST{Scope:1-Trig}Holdoff",    "SCOPE", "trigger holdoff time",    "TRIG:MAIN:HOLDO:VAL", "9", "s"}
+    {"TST{Scope:1-Trig}Level",      "SCOPE", "trigger level",           "TRIG:MAIN:LEV",       "2", "V"}
+
+    {"TST{Scope:1-CH:1}Scale",    "SCOPE", "Channel 1 Scale",    "CH1:SCA", "3", "V"}
+    {"TST{Scope:1-CH:2}Scale",    "SCOPE", "Channel 2 Scale",    "CH2:SCA", "3", "V"}
+    {"TST{Scope:1-CH:3}Scale",    "SCOPE", "Channel 3 Scale",    "CH3:SCA", "3", "V"}
+    {"TST{Scope:1-CH:4}Scale",    "SCOPE", "Channel 4 Scale",    "CH4:SCA", "3", "V"}
+    {"TST{Scope:1-CH:1}Position", "SCOPE", "Channel 1 Position", "CH1:POS", "3", "div"}
+    {"TST{Scope:1-CH:2}Position", "SCOPE", "Channel 2 Position", "CH2:POS", "3", "div"}
+    {"TST{Scope:1-CH:3}Position", "SCOPE", "Channel 3 Position", "CH3:POS", "3", "div"}
+    {"TST{Scope:1-CH:4}Position", "SCOPE", "Channel 4 Position", "CH4:POS", "3", "div"}
+}
+
+file db/wave.db {
+    pattern{NAME, XNAME, PORT, DESC, SOURCE, CMD, NELM, EGU}
+    {"TST{Scope:1-CH:1}", "TST{Scope:1-X}", "SCOPE", "Channel 1 Waveform", "CH1", "WFMP", 10000, "V"}
+    {"TST{Scope:1-CH:2}", "TST{Scope:1-X}", "SCOPE", "Channel 2 Waveform", "CH2", "WFMP", 10000, "V"}
+    {"TST{Scope:1-CH:3}", "TST{Scope:1-X}", "SCOPE", "Channel 3 Waveform", "CH3", "WFMP", 10000, "V"}
+    {"TST{Scope:1-CH:4}", "TST{Scope:1-X}", "SCOPE", "Channel 4 Waveform", "CH4", "WFMP", 10000, "V"}
+}
+
+file db/xaxis.db {
+    pattern{NAME, PORT, DESC, CMD, NELM, EGU}
+    {"TST{Scope:1-X}", "SCOPE", "X axis", "WFMP", 10000, "s"}
+}
+

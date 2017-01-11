@@ -62,7 +62,7 @@ readCurve {
     out "DATA:STOP 10000";
     out "CURVE?";
     in "#510000%.1r\n";
-    out "WFMO:YMU?";
-    in "%(\$2.VAL)f\n";
+    out "\$2:YMU?";
+    in "%(\$3.VAL)f\n";
 }
 

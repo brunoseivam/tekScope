@@ -1,7 +1,7 @@
 record(ai, "$(NAME)Multiplier") {
     field(DESC, "$(DESC) Multiplier")
     field(DTYP, "stream")
-    field(INP,  "@scope.proto readFloat(WFMO:XIN) $(PORT)")
+    field(INP,  "@scope.proto readFloat($(CMD):XIN) $(PORT)")
     field(PREC, "5")
     field(SCAN, "Passive")
     field(FLNK, "$(NAME)Offset")
@@ -10,7 +10,7 @@ record(ai, "$(NAME)Multiplier") {
 record(ai, "$(NAME)Offset") {
     field(DESC, "$(DESC) Offset")
     field(DTYP, "stream")
-    field(INP,  "@scope.proto readFloat(WFMO:XZE) $(PORT)")
+    field(INP,  "@scope.proto readFloat($(CMD):XZE) $(PORT)")
     field(PREC, "5")
     field(SCAN, "Passive")
     field(FLNK, "$(NAME)Calc")

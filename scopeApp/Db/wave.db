@@ -5,7 +5,7 @@ record(waveform, "$(NAME)RawData") {
     field(FTVL, "CHAR")
     field(DTYP, "stream")
     field(SCAN, "$(SCAN=Passive)")
-    field(INP,  "@scope.proto readCurve($(SOURCE),$(NAME)YMultiplier) $(PORT)")
+    field(INP,  "@scope.proto readCurve($(SOURCE),$(CMD),$(NAME)YMultiplier) $(PORT)")
     field(DISV, "0")
     field(SDIS, "$(NAME)Enabled-I")
     field(FLNK, "$(NAME)DataCalc")

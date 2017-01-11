@@ -50,16 +50,16 @@ file db/float.db {
 }
 
 file db/wave.db {
-    pattern{NAME, XNAME, PORT, DESC, SOURCE, NELM, EGU}
-    {"TST{Scope:1-CH:1}", "TST{Scope:1-X}", "SCOPE", "Channel 1 Waveform", "CH1", 10000, "V"}
-    {"TST{Scope:1-CH:2}", "TST{Scope:1-X}", "SCOPE", "Channel 2 Waveform", "CH2", 10000, "V"}
-    {"TST{Scope:1-CH:3}", "TST{Scope:1-X}", "SCOPE", "Channel 3 Waveform", "CH3", 10000, "V"}
-    {"TST{Scope:1-CH:4}", "TST{Scope:1-X}", "SCOPE", "Channel 4 Waveform", "CH4", 10000, "V"}
+    pattern{NAME, XNAME, PORT, DESC, SOURCE, CMD, NELM, EGU}
+    {"TST{Scope:1-CH:1}", "TST{Scope:1-X}", "SCOPE", "Channel 1 Waveform", "CH1", "WFMO", 10000, "V"}
+    {"TST{Scope:1-CH:2}", "TST{Scope:1-X}", "SCOPE", "Channel 2 Waveform", "CH2", "WFMO", 10000, "V"}
+    {"TST{Scope:1-CH:3}", "TST{Scope:1-X}", "SCOPE", "Channel 3 Waveform", "CH3", "WFMO", 10000, "V"}
+    {"TST{Scope:1-CH:4}", "TST{Scope:1-X}", "SCOPE", "Channel 4 Waveform", "CH4", "WFMO", 10000, "V"}
 }
 
 file db/xaxis.db {
-    pattern{NAME, PORT, DESC, NELM, EGU}
-    {"TST{Scope:1-X}", "SCOPE", "X axis", 10000, "s"}
+    pattern{NAME, PORT, DESC, CMD, NELM, EGU}
+    {"TST{Scope:1-X}", "SCOPE", "WFMO", "X axis", 10000, "s"}
 }
 
 file db/label.db {
