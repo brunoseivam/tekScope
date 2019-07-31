@@ -59,7 +59,7 @@ file db/wave.db {
 
 file db/xaxis.db {
     pattern{NAME, PORT, DESC, CMD, NELM, EGU}
-    {"TST{Scope:1-X}", "SCOPE", "WFMO", "X axis", 10000, "s"}
+    {"TST{Scope:1-X}", "SCOPE", "X axis", "WFMO", 10000, "s"}
 }
 
 file db/label.db {
