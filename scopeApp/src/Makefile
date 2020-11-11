@@ -50,5 +50,3 @@ scope_DBD += stream.dbd
 scope_LIBS += asyn
 scope_LIBS += calc
 scope_LIBS += stream
-
-
