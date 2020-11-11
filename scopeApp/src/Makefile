@@ -44,11 +44,9 @@ scope_DBD += asyn.dbd
 scope_DBD += drvAsynSerialPort.dbd
 scope_DBD += drvAsynIPPort.dbd
 scope_DBD += drvAsynUSBTMC.dbd
-scope_DBD += stream.dbd
 scope_DBD += calcSupport.dbd
+scope_DBD += stream.dbd
 
 scope_LIBS += asyn
-scope_LIBS += stream
 scope_LIBS += calc
-
-
+scope_LIBS += stream
